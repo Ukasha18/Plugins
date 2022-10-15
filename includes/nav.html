@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+box-sizing: border-box;
+}
+
+#myInput {
+background-image: url('');
+background-position: 10px 12px;
+background-repeat: no-repeat;
+width: 100%;
+font-size: 16px;
+padding: 12px 20px 12px 40px;
+border: 1px solid #ddd;
+margin-bottom: 12px;
+}
+
+#myUL {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+#myUL li a {
+border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+background-color: #f6f6f6;
+padding: 12px;
+text-decoration: none;
+font-size: 18px;
+color: black;
+display: block
+}
+
+#myUL li a:hover:not(.header) {
+    background-color: #eee;
+}
+</style>
+</head>
+<body>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for.." title="Type in a students">
+
+<ul id="myUL">
+<li><a href="http://localhost/wp572/?post_type=movies&p=1919&preview=true">ukasha</a></li>
+    <li><a href="http://localhost/wp572/?post_type=movies&p=1920&preview=true">Rayyan</a></li>
+
+<li><a href="http://localhost/wp572/?post_type=movies&p=1921&preview=true">moiz</a></li>
+    <li><a href="http://localhost/wp572/?movies=zeeshaan">zeeshaan</a></li>
+
+    <li><a href="http://localhost/wp572/?post_type=movies&p=1923&preview=true">salman</a></li>
+<li><a href="http://localhost/wp572/?post_type=movies&p=1924&preview=true">Abbas</a></li>
+</ul>
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
+
+</script>
+
+</body>
+</html>
